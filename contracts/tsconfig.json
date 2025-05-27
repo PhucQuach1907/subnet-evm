@@ -8,11 +8,11 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "resolveJsonModule": true,
+    "resolveJsonModule": true
   },
   "exclude": ["node_modules", "artifacts", "cache"],
   "typeAcquisition": {
     "enable": true,
     "exclude": ["bn.js"]
-  },
+  }
 }
