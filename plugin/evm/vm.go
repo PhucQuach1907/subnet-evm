@@ -91,7 +91,7 @@ import (
 	avalancheUtils "github.com/ava-labs/avalanchego/utils"
 	avalancheJSON "github.com/ava-labs/avalanchego/utils/json"
 
-	"github.com/ava-labs/subnet-evm/rpc/helloworld"
+	"github.com/ava-labs/subnet-evm/rpc/transferToken"
 )
 
 var (
@@ -1111,9 +1111,9 @@ func (vm *VM) CreateHandlers(context.Context) (map[string]http.Handler, error) {
 		enabledAPIs = append(enabledAPIs, "warp")
 	}
 
-	// Register Hello World API
-	helloWorldAPI := &helloworld.PublicAPI{}
-	for _, api := range helloworld.APIs(helloWorldAPI) {
+	// Register Transfer Token API
+	transferTokenAPI := transferToken.NewTransferTokenAPI(vm.eth.APIBackend)
+	for _, api := range transferToken.APIs(transferTokenAPI) {
 		if err := handler.RegisterName(api.Namespace, api.Service); err != nil {
 			return nil, err
 		}

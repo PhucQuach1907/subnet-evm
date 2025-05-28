@@ -10,6 +10,8 @@ GOPATH="$(go env GOPATH)"
 DEFAULT_PLUGIN_DIR="${HOME}/.avalanchego/plugins"
 DEFAULT_VM_NAME="subnet-evm"
 DEFAULT_VM_ID="srEXiWaHuhNyGwPUi444Tu47ZEDwxTWrbQiuD7FmgSAQ6X7Dy"
+BUILD_DIR="${HOME}/blockchain/subnet-evm/build"
+FILE_BUILD_NAME="subnet-evm"
 
 # Avalabs docker hub
 # avaplatform/avalanchego - defaults to local as to avoid unintentional pushes
