@@ -90,6 +90,8 @@ import (
 	"github.com/ava-labs/avalanchego/database"
 	avalancheUtils "github.com/ava-labs/avalanchego/utils"
 	avalancheJSON "github.com/ava-labs/avalanchego/utils/json"
+
+	"github.com/ava-labs/subnet-evm/rpc/helloworld"
 )
 
 var (
@@ -1107,6 +1109,15 @@ func (vm *VM) CreateHandlers(context.Context) (map[string]http.Handler, error) {
 			return nil, err
 		}
 		enabledAPIs = append(enabledAPIs, "warp")
+	}
+
+	// Register Hello World API
+	helloWorldService := helloworld.NewService()
+	for _, api := range helloworld.APIs(helloWorldService) {
+		if err := handler.RegisterName(api.Namespace, api.Service); err != nil {
+			return nil, err
+		}
+		enabledAPIs = append(enabledAPIs, api.Namespace)
 	}
 
 	log.Info(fmt.Sprintf("Enabled APIs: %s", strings.Join(enabledAPIs, ", ")))
