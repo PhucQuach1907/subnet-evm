@@ -13,11 +13,11 @@ func (api *PublicAPI) HelloWorld(ctx context.Context) (string, error) {
 }
 
 // APIs returns the list of APIs this package provides
-func APIs(service *Service) []rpc.API {
+func APIs(api *PublicAPI) []rpc.API {
 	return []rpc.API{
 		{
 			Namespace: "hello",
-			Service:   service,
+			Service:   api,
 			Name:      "world",
 		},
 	}

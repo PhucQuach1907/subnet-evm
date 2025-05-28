@@ -1112,8 +1112,8 @@ func (vm *VM) CreateHandlers(context.Context) (map[string]http.Handler, error) {
 	}
 
 	// Register Hello World API
-	helloWorldService := helloworld.NewService()
-	for _, api := range helloworld.APIs(helloWorldService) {
+	helloWorldAPI := &helloworld.PublicAPI{}
+	for _, api := range helloworld.APIs(helloWorldAPI) {
 		if err := handler.RegisterName(api.Namespace, api.Service); err != nil {
 			return nil, err
 		}
