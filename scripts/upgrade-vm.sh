@@ -24,14 +24,14 @@ LOCAL_PLUGIN_DIR="$HOME/.avalanche-cli/local/atichain-local-node-fuji/plugins"
 
 # Run expect script
 echo "Updating VM..."
-avalanche blockchain upgrade vm atichain
+avalanche blockchain upgrade vm AtiChain
 
 # Get the new plugin file
 NEW_PLUGIN=$(ls -t "$PLUGIN_DIR" | head -n1)
 
 # Copy to local plugin directory
 echo "Copying plugin to local directory..."
-cp "$PLUGIN_DIR/$NEW_PLUGIN" "$LOCAL_PLUGIN_DIR/"
+cp "$PLUGIN_DIR/$NEW_PLUGIN" "~/.avalanchego/plugins/VpxHmDYnVBePPgpUBXywhSnLenYtyg5iCHCFAFRLUprxURWAn"
 
 echo "Upgrade completed successfully!" 
 

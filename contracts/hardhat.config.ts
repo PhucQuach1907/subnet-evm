@@ -23,8 +23,15 @@ const config: HardhatUserConfig = {
   networks: {
     atichain: {
       url: process.env.RPC_URI,
-      accounts: [process.env.ATI_PRIVATE_KEY],
+      accounts: [process.env.PRIVATE_KEY],
       chainId: parseInt(process.env.ATI_CHAIN_ID || "1337"),
+      gasPrice: "auto",
+      gas: "auto",
+    },
+    cchain: {
+      url: process.env.C_CHAIN_RPC_URI,
+      accounts: [process.env.PRIVATE_KEY],
+      chainId: 43113,
       gasPrice: "auto",
       gas: "auto",
     },

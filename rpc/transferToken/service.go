@@ -32,3 +32,16 @@ func (s *Service) TransferToken(ctx context.Context, from, to, token common.Addr
 	}
 	return s.api.TransferToken(ctx, args)
 } 
+
+// TransferFromToken transfers ERC20 tokens using transferFrom
+func (s *Service) TransferFromToken(ctx context.Context, from, to, token common.Address, amount *big.Int, gasPrice *big.Int, ownerPrivKey string) (common.Hash, error) {
+	args := TransferFromTokenArgs{
+		From:         from,
+		To:           to,
+		Token:        token,
+		Amount:       amount,
+		GasPrice:     gasPrice,
+		OwnerPrivKey: ownerPrivKey,
+	}
+	return s.api.TransferFromToken(ctx, args)
+} 
